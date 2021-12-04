@@ -16,7 +16,7 @@ class Config(object):
 
 class ProductionConfig(Config):
     DEBUG = True
-    SQLALCHEMY_DATABASE_URI = "postgresql://mbkodzmdestiaq:41e8a8a6b37f0170f6d567918d376f75c1f40d14e86841feace6db5a54f3089c@ec2-54-235-45-88.compute-1.amazonaws.com:5432/d34k33c6a3679v"
+    SQLALCHEMY_DATABASE_URI = "postgresql://olricustrkyuhv:2358591c636ea4962098dcd370f94c052b3b6deff114627572025749bb5f4335@ec2-3-230-219-251.compute-1.amazonaws.com:5432/db0rv0d296sg6"
 
     ENVIRONMENT = 'production'
 
@@ -39,7 +39,7 @@ config = {
 
 
 def configure_app(app):
-    config_name = os.getenv('FLASK_CONFIGURATION', 'development')
+    config_name = os.getenv('FLASK_CONFIGURATION', 'production')
     print(config_name)
     app.config.from_object(config[config_name])
     app.config.from_pyfile('config.cfg', silent=True)
